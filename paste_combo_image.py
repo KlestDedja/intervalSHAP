@@ -243,15 +243,20 @@ def place_bottom_rows(canvas, bottom_images, layout):
 
 
 def render_title(combo_width, title, image_dpi_res, font_size=36, title_padding=20):
-    font_size = round(font_size * (image_dpi_res / 72))
-    font = ImageFont.truetype("arial.ttf", font_size)
+    vis_font_size = round(font_size * (image_dpi_res / 72))
+
+    try:  # load arial.ttf if required file is available in the local system
+        font_obj = ImageFont.truetype("arial.ttf", vis_font_size)
+    except OSError:  # if the above fails, load default font
+        # font_obj = ImageFont.truetype("DejaVuSans.ttf", vis_font_size)
+        font_obj = ImageFont.load_default(size=vis_font_size)  # load system's default
 
     tmp_draw = ImageDraw.Draw(Image.new("RGB", (10, 10)))
     try:
-        bbox = tmp_draw.textbbox((0, 0), title, font=font)
+        bbox = tmp_draw.textbbox((0, 0), title, font=font_obj)
         text_width, text_height = bbox[2] - bbox[0], bbox[3] - bbox[1]
     except Exception:
-        text_width, text_height = tmp_draw.textsize(title, font=font)  # type: ignore
+        text_width, text_height = tmp_draw.textsize(title, font=font_obj)  # type: ignore
     title_image = Image.new(
         "RGB", (combo_width, int(text_height + title_padding)), color=(255, 255, 255)
     )
@@ -260,7 +265,7 @@ def render_title(combo_width, title, image_dpi_res, font_size=36, title_padding=
     text_y = (
         title_image.height - text_height
     ) // 4  # Leave more space in the bottom part
-    draw.text((text_x, text_y), title, fill="black", font=font)
+    draw.text((text_x, text_y), title, fill="black", font=font_obj)
     return title_image
 
 
