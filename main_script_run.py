@@ -28,7 +28,7 @@ from utilities import format_SHAP_values
 from utilities import save_placeholder_plot
 
 DPI_RES = 180
-DRAFT_RUN = False
+DRAFT_RUN = True
 
 if __name__ == "__main__":
 
@@ -104,21 +104,21 @@ if __name__ == "__main__":
     plt.savefig(os.path.join(root_folder, fig_folder, "survival-curve-example.pdf"))
     if DRAFT_RUN:
         plt.show(block=False)
-        plt.pause(0.4)
+        plt.pause(0.5)
     plt.close()
 
     plt = plot_cum_hazard_curve(unique_times, y_hazard_smooth, fontsize=14)
     plt.savefig(os.path.join(root_folder, fig_folder, "cum-hazard-curve-example.pdf"))
     if DRAFT_RUN:
         plt.show(block=False)
-        plt.pause(0.4)
+        plt.pause(0.5)
     plt.close()
 
     plt = plot_hazard_curve(unique_times, dy_hazard_smooth, fontsize=14)
     plt.savefig(os.path.join(root_folder, fig_folder, "hazard-curve-example.pdf"))
     if DRAFT_RUN:
         plt.show(block=False)
-        plt.pause(0.4)
+        plt.pause(0.5)
     plt.close()
 
     convert_all = SurvivalModelConverter(
@@ -156,7 +156,7 @@ if __name__ == "__main__":
         )
     if DRAFT_RUN:
         plt.show(block=False)
-        plt.pause(0.4)
+        plt.pause(0.5)
     plt.close()
 
     """
@@ -219,7 +219,7 @@ if __name__ == "__main__":
             )
         if DRAFT_RUN:
             plt.show(block=False)
-            plt.pause(0.4)
+            plt.pause(0.5)
         plt.close()
 
     # examples to explain: 3 for draft run, 8 to 12 for full data
@@ -790,7 +790,7 @@ if __name__ == "__main__":
             layout_feature["combo_width"],
             f"Time-SHAP, feature importance over time",
             DPI_RES,
-            font_size=28,
+            font_size=32,
         )
 
         final_image_feature = assemble_image_title(
