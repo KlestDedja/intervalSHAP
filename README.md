@@ -14,8 +14,8 @@ A Python project (soon to be, package) for _time-dependent_ [SHAP](https://shap.
 Create a new conda environment named `timeshap` with e.g. Python 3.10:
 
 ```sh
-conda create -n timeshap python=3.10
-conda activate timeshap
+conda create -n intervalshap python=3.10
+conda activate intervalshap
 ```
 
 If you are not using Anaconda, you can use `pip` to install the required packages (see below).
@@ -56,7 +56,7 @@ pip install "scikit-survival>=0.22" "shap==0.47" "matplotlib==3.10.0" "ipython==
 
 1. **Activate the environment:**
    ```sh
-   conda activate timeshap
+   conda activate intervalshap
    ```
 2. **Run the main script:**
    ```sh
