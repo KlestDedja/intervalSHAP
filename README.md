@@ -11,7 +11,7 @@ A Python project (soon to be, package) for _time-dependent_ [SHAP](https://shap.
 ## Setup
 
 ### 1. Environment Creation
-Create a new conda environment named `timeshap` with e.g. Python 3.10:
+Create a new conda environment named `intervalshap` with e.g. Python 3.10:
 
 ```sh
 conda create -n intervalshap python=3.10
@@ -44,7 +44,7 @@ pip install "scikit-survival>=0.22" "shap==0.47" "matplotlib==3.10.0" "ipython==
 
 ## Repository Structure
 
-- `main_script_run.py` — Main script to run timeSHAP analysis
+- `main_script_run.py` — Main script to run intervalSHAP analysis
 - `generate_surv_data.py` — Script to generate synthetic survival data (being tested)
 - `environment.yml` — Conda environment specification (alternative to manual setup)
 - `FLChain-single-event-imputed/` — Example dataset (csv files)
@@ -62,7 +62,7 @@ pip install "scikit-survival>=0.22" "shap==0.47" "matplotlib==3.10.0" "ipython==
    ```sh
    python main_script_run.py
    ```
-   This will perform the timeSHAP analysis and generate output figures in the `figures/` directory.
+   This will perform the intervalSHAP analysis and generate output figures in the `figures/` directory.
 
 3. **Generate synthetic data (optional):**
    ```sh
